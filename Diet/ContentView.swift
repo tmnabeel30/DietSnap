@@ -7,18 +7,52 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct ActivityView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationView {
+            VStack{
+                ScrollView {
+                    VStack(spacing: 20) {
+                        HeaderView()
+                            .padding()
+                        TodayView()
+                        GoalsView()
+                            .padding(.top, 40)
+                        ExploreView()
+                    }
+                    
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            Text("Dietsnap")
+                                .bold()
+                                .foregroundColor(.orange)
+                                .shadow(radius: 5)
+                                        }
+                        ToolbarItemGroup(placement: .primaryAction) {
+                                Button(action: {}) {
+                                    Image("Notification")
+                                }
+                                Button(action: {}) {
+                                    Image("Achievement")
+                                }
+                                Button(action: {}) {
+                                    Image("Message")
+                                
+                            }
+                            
+                        }
+                    }
+                }
+            }
         }
-        .padding()
     }
 }
 
+
+
+
+
+
 #Preview {
-    ContentView()
+    ActivityView()
 }
